@@ -56,11 +56,14 @@ class MyService : Service() {
                     .setDefaults(Notification.DEFAULT_ALL)
                     .setTicker("알림!!!")
                     .setContentIntent(pendingIntent)
-                    .setCategory(Notification.CATEGORY_MESSAGE)
-                    .setPriority(Notification.PRIORITY_HIGH)
-                    .setVisibility(Notification.VISIBILITY_PUBLIC)
                     .build()
 
+            if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.LOLLIPOP) {
+
+                Notifi.category= Notification.CATEGORY_MESSAGE
+                Notifi.priority=Notification.PRIORITY_HIGH
+                Notifi.visibility=Notification.VISIBILITY_PUBLIC
+            }
             //소리추가
             Notifi.defaults = Notification.DEFAULT_SOUND
 
